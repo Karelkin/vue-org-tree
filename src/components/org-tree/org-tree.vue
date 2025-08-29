@@ -51,7 +51,8 @@ export default {
         bin_acc_id: 'bin_acc_id',
         empty: 'empty',
         expand: 'expand',
-        children: 'children'
+        children: 'children',
+        country_code: 'country_code'
       })
     },
     horizontal: Boolean,

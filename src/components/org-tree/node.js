@@ -78,6 +78,7 @@ export function renderLabel (h, data, context) {
   const tree_id = data[props.props.tree_id]
   const parent_id = data[props.props.parent_id]
   const bin_acc_id = data[props.props.bin_acc_id]
+  const country_code = data[props.props.country_code]
   const empty = data[props.props.tree_id] === null ? 'Нет ребенка' : undefined
   const renderContent = props.renderContent
 
@@ -96,6 +97,7 @@ export function renderLabel (h, data, context) {
   const childNodes8 = []
   const childNodes9 = []
   const childNodes10 = []
+  const childNodes11 = []
 
   if (typeof renderContent === 'function') {
     let vnode = renderContent(h, data)
@@ -110,6 +112,7 @@ export function renderLabel (h, data, context) {
       && childNodes7.push(is_banned)
       && childNodes9.push(bin_acc_id)
       && childNodes10.push(empty)
+      && childNodes11.push(country_code)
   } else {
     childNodes.push(email)
     childNodes8.push(old_email)
@@ -121,6 +124,7 @@ export function renderLabel (h, data, context) {
     childNodes7.push(is_banned)
     childNodes9.push(bin_acc_id)
     childNodes10.push(empty)
+    childNodes11.push(country_code)
   }
 
   if (props.collapsable && !isLeaf(data, props.props.children)) {
@@ -203,7 +207,12 @@ export function renderLabel (h, data, context) {
     }, childNodes9),
     h('div', {
       domProps: {
-        className: 'user__empty'
+        className: 'user__bin-acc-id'
+      },
+    }, childNodes11),
+    h('div', {
+      domProps: {
+        className: 'user__county-code'
       },
     }, childNodes10)])])
 }
